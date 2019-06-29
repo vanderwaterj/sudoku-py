@@ -1,7 +1,8 @@
 Sectors are represented in this fashion:
 
 
-```000111222
+```
+000111222
 000111222
 000111222
 333444555
@@ -9,4 +10,5 @@ Sectors are represented in this fashion:
 333444555
 666777888
 666777888
-666777888```
+666777888
+```
