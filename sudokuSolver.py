@@ -31,7 +31,6 @@ class Puzzle:
         self.board = board
         self.board_size = len(self.board)
         self.possible_cell_vals = []
-
         self.update_possible_cell_vals()
 
     def get_row_vals(self, row):
@@ -96,7 +95,7 @@ class Puzzle:
             for j in range(self.board_size):
                 if (len(self.possible_cell_vals[i][j]) == 0) and (self.board[i][j] == 0):
                     return True
-        return False
+        return False    
 
     def make_assumption(self, cell):
         self.check_solved()
@@ -105,6 +104,8 @@ class Puzzle:
             self.board = np.copy(working_board)
             self.set_cell(cell, val)
             self.fill_lonely()
+            if self.check_for_contradictions():
+                continue
             self.make_assumption(self.next_open_cell())
             
     def next_open_cell(self):
